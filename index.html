@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#317EFB"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="Description" content="Author: Mubarek, 
+    Powered by: free.currencyconverter.com, Category: Currency Exchange App, Inspired by: Udacity Google Andela, 
+    Price: Free">
+    <title>Currency Exchange</title>
+    <link rel="manifest" href="/manifest.json">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="form-wrap">
+
+        <!-- Header -->
+        <div class="form-header">
+          Note: Exchange rate is updated every 60 minutes.
+        </div>
+      
+        <!-- Form body -->
+        <div class="form-body">
+            <!-- Currency Exchange Input Elements -->
+            <div class="form-part is-showing">
+               <div class="title">Currency Exchange</div>
+                <form action="">
+                        <label for="amount">Amount</label>
+                    <input  type="number" name="amount" id="amount"  placeholder="Amount">
+                    
+                    </select><label  for="drpCurr1">From</label>
+                    <select  name="drpCurr1" id="drpCurr1">
+                           
+                          </select><label for="drpCurr2" >To</label>
+                          <select name="drpCurr2" id="drpCurr2">
+                               
+                              </select>
+                    <div class="centered">
+                    <div class="button" id="ConvBtn">Convert</div>
+                </div>
+                <br>
+                <div class="result">
+                   <label id="result">0.0</label> 
+                   <br><sub><small> <label id="rate"></label></small></sub>
+                </div>
+                </form>
+            </div>
+          
+        
+        </div>
+        <div class="progress centered">
+                     <progress></progress></div>
+    </div> 
+    <!-- <script src="js/offline.js" async></script> -->
+    <script src="js/app.js" async></script>
+   
+</body>
+
+</html>
