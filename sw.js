@@ -17,7 +17,8 @@ self.addEventListener('install', event => {
         'imgs/icon.png',
         'imgs/icon-192.png',
         'imgs/icon-512.png',
-        'css/style.css'
+        'css/style.css',
+        'manifest.json'
          ]);
     })
   );
