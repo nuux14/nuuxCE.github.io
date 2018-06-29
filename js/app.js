@@ -1,5 +1,6 @@
 
 /*
+* THIS WORK BELONGS TO MUBAREK MOHAMMED
 * SERVICE WORKER REGISTRATION
 */
 if ('serviceWorker' in navigator) {
@@ -17,7 +18,7 @@ if ('serviceWorker' in navigator) {
 /*
 * GET CURRENCY LIST FROM NETWORK IF IT IS THE FIRST TIME OR THERE'S NO indexedDB
 */
-var request = window.indexedDB.open("ceDB", 1);
+let request = window.indexedDB.open("ceDB", 1);
 
 
 
@@ -29,24 +30,24 @@ function CurrListFromNetwork() {
     }
     if (window.indexedDB) {
 
-        request.onupgradeneeded = function (event) {
-            var db = event.target.result;
-            let objectStore = db.createObjectStore("currencies", { keyPath: "id" });
-            var objectStoreRate = db.createObjectStore("exchRates", { keyPath: "id" });
-            objectStore.transaction.oncomplete = (event) => {
+        request.onupgradeneeded = event =>{
+            const db = event.target.result;
+            const objectStore = db.createObjectStore("currencies", { keyPath: "id" });
+            const objectStoreRate = db.createObjectStore("exchRates", { keyPath: "id" });
+            objectStore.transaction.oncomplete = event => {
                 // Store values in the newly created objectStore.
                 const urlCurrList = `https://free.currencyconverterapi.com/api/v5/currencies`;
                 const currList = new Array();
                 fetch(urlCurrList)
-                    .then(function (response) {
+                    .then( response => {
                         return response.json();
-                    }).then(function (myJson) {
+                    }).then( myJson=> {
                         const x = Object.values(myJson.results);
                         for (const key of x) {
                             currList.push(key);//
                         }
-                        var currObjectStore = db.transaction("currencies", "readwrite").objectStore("currencies");
-                        currList.forEach(function (c) {
+                        const currObjectStore = db.transaction("currencies", "readwrite").objectStore("currencies");
+                        currList.forEach( c => {
                             currObjectStore.add(c);
                         });
                         window.location.reload();
@@ -63,7 +64,6 @@ function CurrListFromNetwork() {
 /*
 *  POPULATE THE CURRENCY LIST ELEMENTS
 */
-//var DBOpenRequest = window.indexedDB.open("ceDB", 1); 
 function getData() {   
     let sel = document.getElementById('drpCurr1');
     let sel2 = document.getElementById('drpCurr2');
@@ -71,13 +71,13 @@ function getData() {
         db = request.result;
         CurrListFromNetwork();
         const transaction = db.transaction(["currencies"], "readwrite");
-        transaction.oncomplete = (event) => {
+        transaction.oncomplete = event => {
         };
-        transaction.onerror = (event) => {
+        transaction.onerror = event => {
            // note.innerHTML += '<li>Test</li>';
         };
         let objectStoreRequest = transaction.objectStore("currencies").getAll();
-        objectStoreRequest.onsuccess = (event) => {
+        objectStoreRequest.onsuccess = event => {
             objectStoreRequest.result.forEach(x => {              
                 let opt = document.createElement('option');
                 let opt2 = document.createElement('option');
@@ -85,8 +85,7 @@ function getData() {
                 opt.text = x.currencyName + ' (' + x.id + ')';
                 opt2 = opt.cloneNode(true);
                 sel.add(opt);
-                sel2.add(opt2);
-                return true;
+                sel2.add(opt2);               
             });
         };
     }
@@ -111,15 +110,15 @@ ConvBtn.addEventListener("click", () => {
 
 
     const req = window.indexedDB.open("ceDB", 1);
-    req.onsuccess = function (event) {
+    req.onsuccess = event => {
         db = req.result;
         let tx = db.transaction(["exchRates"]);
         let obRate = tx.objectStore("exchRates");
         let reqobRate = obRate.get(`${fromCurr}_${toCurr}`);
-        reqobRate.onerror = (event) => {
+        reqobRate.onerror = event => {
             return -1;
         };
-        reqobRate.onsuccess = (event) => {
+        reqobRate.onsuccess = event => {
                 /*  
                 * CHECK IF RATE EXIST IN DB AND          
                 * IF 60 MINUTES DIDN'T ELAPSE
@@ -147,18 +146,15 @@ ConvBtn.addEventListener("click", () => {
             }
         }
     };
-
-
-
-
 });
 /*
 * SAVES RATES TO DB, DB CONNECTION IS USED REPEATEDLY ON PURPOSE
 * BECAUSE I HAVE DIFFICULTY WORKING WITH INDEXDB BROWSER API
-*/
+* THIS WORK BELONGS TO MUBAREK MOHAMMED
+*/ 
 function add(fromCurr, toCurr, y) {
     const req = window.indexedDB.open("ceDB", 1);
-    req.onsuccess = function (event) {
+    req.onsuccess = event => {
         db = req.result;
         const tx = db.transaction(["exchRates"], "readwrite");
         tx.objectStore('exchRates').delete(`${toCurr}_${fromCurr}`);
@@ -166,12 +162,7 @@ function add(fromCurr, toCurr, y) {
         tx.objectStore('exchRates').add({ id: `${fromCurr}_${toCurr}`, value: y[0], dateReceived: Date.now() });
         tx.objectStore('exchRates').add({ id: `${toCurr}_${fromCurr}`, value: y[1], dateReceived: Date.now() });
     }
-    req.onerror = function (event) {/*  TO BE USED FOR INFORMING THE USER   */ }
-}
-
-
-function read(fromCurr, toCurr) {
-
+    req.onerror = event => {/*  TO BE USED FOR INFORMING THE USER   */ }
 }
 
 CurrListFromNetwork();
