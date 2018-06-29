@@ -1,0 +1,14 @@
+{
+  "short_name": "CE",
+  "name": "Mubarek's Currency Exchange",
+  "icons": [
+  {
+    "src": "/imgs/icon.png",
+    "type": "image/png",
+    "sizes": "144x144"
+  }],
+  "start_url": "/convert.html",
+  "background_color": "ff8f00",
+  "display": "standalone", 
+  "theme_color": "#ff8f00"
+}
