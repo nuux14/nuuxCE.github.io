@@ -3,7 +3,7 @@
   "name": "Mubarek's Currency Exchange",
   "icons": [
   {
-    "src": "/imgs/icon.png",
+    "src": "imgs/icon.png",
     "type": "image/png",
     "sizes": "144x144"
   },
