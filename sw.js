@@ -10,6 +10,8 @@ self.addEventListener('install', event=> {
         'index.html',
         'js/app.js',
         'imgs/icon.png',
+        'imgs/icon-192.png',
+        'imgs/icon-512.png',
         'css/style.css'
          ]);
     })
