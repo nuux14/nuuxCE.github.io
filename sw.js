@@ -8,10 +8,10 @@ self.addEventListener('install', event=> {
     caches.open(staticCacheName).then(cache=> {
       return cache.addAll([
         './',
-        './index.html',
-        './js/app.js',
-        './imgs/icon.png',
-        './css/style.css'
+        'index.html',
+        'js/app.js',
+        'imgs/icon.png',
+        'css/style.css'
          ]);
     })
   );
