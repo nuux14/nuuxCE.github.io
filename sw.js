@@ -8,7 +8,7 @@ self.addEventListener('install', event=> {
     caches.open(staticCacheName).then(cache=> {
       return cache.addAll([
         './',
-        '/converter.html',
+        './converter.html',
         'js/app.js',
         'imgs/icon.png',
         'css/style.css'
