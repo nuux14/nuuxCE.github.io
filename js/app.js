@@ -4,7 +4,6 @@
 */
 if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('./sw.js').then(reg => {
-
         if (reg.installing) {
             console.log('Service worker installing');
         } else if (reg.waiting) {
@@ -52,7 +51,7 @@ function CurrListFromNetwork() {
                         });
                         window.location.reload();
                     }).catch(error => {
-                        console.log('Couldnt fetch for now' + error);
+                        //console.log('Couldnt fetch for now' + error);
                     });
             };
         }
@@ -65,8 +64,7 @@ function CurrListFromNetwork() {
 *  POPULATE THE CURRENCY LIST ELEMENTS
 */
 //var DBOpenRequest = window.indexedDB.open("ceDB", 1); 
-function getData() {
-    let dataFound = false;
+function getData() {   
     let sel = document.getElementById('drpCurr1');
     let sel2 = document.getElementById('drpCurr2');
     request.onsuccess = event => {
@@ -76,12 +74,11 @@ function getData() {
         transaction.oncomplete = (event) => {
         };
         transaction.onerror = (event) => {
-            note.innerHTML += '<li>Transaction not opened due to error: ' + transaction.error + '</li>';
+           // note.innerHTML += '<li>Test</li>';
         };
         let objectStoreRequest = transaction.objectStore("currencies").getAll();
         objectStoreRequest.onsuccess = (event) => {
-            objectStoreRequest.result.forEach(x => {
-                dataFound = true;
+            objectStoreRequest.result.forEach(x => {              
                 let opt = document.createElement('option');
                 let opt2 = document.createElement('option');
                 opt.value = x.id;
@@ -133,7 +130,7 @@ ConvBtn.addEventListener("click", () => {
                     const amount = txtAmt.value == '' ? 1 : txtAmt.value;
                     const rate = reqobRate.result.value;
                     lbl.innerHTML = `${amount} ${fromCurr}  =  ${rate * amount}  ${toCurr}`;
-                   console.log('rate served from cache');
+                //   console.log('rate served from cache');
                
 
             } else { /* IF IT IS NOT IN THE CACHE WE FETCH FROM NETWORK */
@@ -144,7 +141,7 @@ ConvBtn.addEventListener("click", () => {
                     const amount = txtAmt.value == '' ? 1 : txtAmt.value;
                     const y = Object.values(response);
                     lbl.innerHTML = `${amount} ${fromCurr}  =  ${y[0] * amount}  ${toCurr}`;
-                    console.log('rate served from Network');
+                   // console.log('rate served from Network');
                     add(fromCurr, toCurr, y);
                 });
             }
