@@ -1,14 +1,6 @@
 /*
  * Made By Mubarek  2018
  */
-
-.icon-block {
-  padding: 0 15px;
-}
-.icon-block .material-icons {
-	font-size: inherit;
-}
-
 input[type="text"]:focus,select:focus, input[type="number"]:focus{
   border-color: #FF6F00
 }
@@ -47,9 +39,7 @@ width:100%
     letter-spacing: 1px;
     font-weight: 300;
     font-size:24px;
-
 }
-
 .button{
     padding: 10px 20px;
     background: #e7e6ab;
@@ -60,7 +50,6 @@ width:100%
     border-radius:3px;
     display:inline-block;
 }
-
 .form-wrap{
     max-width:600px;
     margin: 50px auto;
@@ -84,33 +73,9 @@ width:100%
 .centered{
   text-align: center;
 }
-span{
-    display:block;
-    height: 12px;
-    width: 12px;
-    margin: 5px;
-    border-radius: 50%;
-    background: rgba(0,0,0,.4);
-}
-span.is-active{
-    background: rgba(0,0,0,.4);
-    background: #ff8f00;
-}
-
 .form-body{
     background:white;
     position:relative;
-
-}
-
-.contact{
-  width: 65px;
-  height: 40px;
-  background: rgb(97, 197, 97);
-  position: fixed;
-  top:auto;
-  bottom:0;
-  LEFT:0;
 }
 .form-part{
     background: white;
@@ -121,14 +86,11 @@ span.is-active{
     top:0;
     display:none;
     box-sizing:border-box;
-width:100%;
-    
+width:100%;    
 }
-
 .form-part.is-showing{
     display:block;
 }
-
 .progress{
     margin:50px;
 }
