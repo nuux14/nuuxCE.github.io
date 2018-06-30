@@ -1,0 +1,26 @@
+{
+  "short_name": "CE",
+  "name": "CE FOREX",
+  "icons": [
+  {
+    "src": "imgs/icon.png",
+    "type": "image/png",
+    "sizes": "144x144"
+  },
+  {
+    "src": "/imgs/icon-512.png",
+    "type": "image/png",
+    "sizes": "512x512"
+  },
+  {
+    "src": "/imgs/icon-192.png",
+    "type": "image/png",
+    "sizes": "192x192"
+  }
+
+],
+  "start_url": "/",
+  "background_color": "#ff8f00",
+  "display": "fullscreen", 
+  "theme_color": "#ff8f00"
+}
