@@ -19,7 +19,7 @@
   }
 
 ],
-  "start_url": "/",
+  "start_url": "./index.html",
   "background_color": "#ff8f00",
   "display": "fullscreen", 
   "theme_color": "#ff8f00"
