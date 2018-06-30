@@ -16,12 +16,10 @@
 
 <body>
     <div class="form-wrap">
-
         <!-- Header -->
         <div class="form-header">
           Note: Exchange rate is updated every 60 minutes.
-        </div>
-      
+        </div>      
         <!-- Form body -->
         <div class="form-body">
             <!-- Currency Exchange Input Elements -->
@@ -29,30 +27,24 @@
                <div class="title">Currency Exchange</div>
                 <form action="">
                         <label for="amount">Amount</label>
-                    <input  type="number" name="amount" id="amount"  placeholder="Amount">
-                    
-                    </select><label  for="drpCurr1">From</label>
-                    <select  name="drpCurr1" id="drpCurr1">
-                           
+                    <input  type="number" name="amount" id="amount"  placeholder="Amount">                    
+                   <label  for="drpCurr1">From</label>
+                    <select  name="drpCurr1" id="drpCurr1">                           
                           </select><label for="drpCurr2" >To</label>
-                          <select name="drpCurr2" id="drpCurr2">
-                               
+                          <select name="drpCurr2" id="drpCurr2">                               
                               </select>
                     <div class="centered">
                     <button class="button" id="ConvBtn">Convert</button>
-                </div>
-                <br>
+                </div><br>
                 <div class="result">
                    <label id="result">0.0</label> 
                    <br><sub><small> <label id="rate"></label></small></sub>
                 </div>
                 </form>
-            </div>
-          
-        
+            </div>    
         </div>
         <div class="progress centered">
-                     <progress></progress></div>
+          <progress></progress></div>
     </div> 
     <!-- <script src="js/offline.js" async></script> -->
     <script src="js/app.js" async></script>
