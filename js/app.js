@@ -128,7 +128,7 @@ ConvBtn.addEventListener("click", () => {
                
                     const amount = txtAmt.value == '' ? 1 : txtAmt.value;
                     const rate = reqobRate.result.value;
-                    lbl.innerHTML = `${amount} ${fromCurr}  =  ${rate * amount}  ${toCurr}`;
+                    lbl.innerHTML = `${amount} ${fromCurr}  =  ${(rate * amount).toFixed(2)}  ${toCurr}`;
                 //   console.log('rate served from cache');
                
 
@@ -139,7 +139,7 @@ ConvBtn.addEventListener("click", () => {
                 }).then(response => {
                     const amount = txtAmt.value == '' ? 1 : txtAmt.value;
                     const y = Object.values(response);
-                    lbl.innerHTML = `${amount} ${fromCurr}  =  ${y[0] * amount}  ${toCurr}`;
+                    lbl.innerHTML = `${amount} ${fromCurr}  =  ${(y[0] * amount).toFixed(2)}  ${toCurr}`;
                    // console.log('rate served from Network');
                     add(fromCurr, toCurr, y);
                 });
