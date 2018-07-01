@@ -46,6 +46,7 @@ function CurrListFromNetwork() {
                         for (const key of x) {
                             currList.push(key);//
                         }
+                        currList.sort();
                         const currObjectStore = db.transaction("currencies", "readwrite").objectStore("currencies");
                         currList.forEach( c => {
                             currObjectStore.add(c);
